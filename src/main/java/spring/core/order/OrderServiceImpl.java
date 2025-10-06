@@ -2,14 +2,14 @@ package spring.core.order;
 
 import spring.core.discount.DiscountPolicy;
 import spring.core.member.Member;
-import spring.core.member.MemoryMemberRepository;
+import spring.core.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemoryMemberRepository memberRepository;
+    private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    public OrderServiceImpl (MemoryMemberRepository memberRepositor,DiscountPolicy discountPolicy){
+    public OrderServiceImpl (MemberRepository memberRepositor, DiscountPolicy discountPolicy){
         this.memberRepository = memberRepositor;
         this.discountPolicy = discountPolicy;
     }
