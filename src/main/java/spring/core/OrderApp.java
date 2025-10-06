@@ -3,15 +3,14 @@ package spring.core;
 import spring.core.member.Grade;
 import spring.core.member.Member;
 import spring.core.member.MemberService;
-import spring.core.member.MemberServiceImpl;
 import spring.core.order.Order;
 import spring.core.order.OrderService;
-import spring.core.order.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member memberA = new Member(memberId, "memberA", Grade.VIP);
@@ -21,7 +20,7 @@ public class OrderApp {
         Order order = orderService.createOrder(memberId, "itemA", 10000);
 
         System.out.println("order = " + order.toString());
-        System.out.println("order price = " + order.calculatePrice());
+//        System.out.println("order price = " + order.calculatePrice());
 
     }
 }
